@@ -8,15 +8,15 @@ A conky script based on [Ballon Conky](https://iacoporosso.deviantart.com/art/Ba
 $ conky -c left & conky -c right & exit
 ```
 
-or
+Or
 
 ``` shell
 $ cd .conky
 $ git clone https://github.com/lzgh64/ConkyBallonPlus.git
 ```
-Then turn on by Conky Manager
+Then active it by Conky Manager.
 
-You can add alias in your shell config file like `.zshrc`.
+You can add alias in your shell config file like `.zshrc`:
 ``` shell
 alias note='vim ~/.conky/ConkyBallonPlus/note.txt'
 alias todo='vim ~/.conky/ConkyBallonPlus/todo.txt'
