@@ -72,34 +72,34 @@ ${color 0778ec}${offset 56}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}
 
 ${voffset -27}${offset 110}${font neuropol:size=20}${time %H:%M}${font}  ${font Nimbus Mono L:size=9}$uptime
 ${voffset -5}${offset 110}${cpubar cpu6 0, 210}${voffset 2}${color1}
-${font Nimbus Mono L:size=8 style=bold}${color2}${alignc} ${exec date +%B\ %Y | sed 's/^.\| [a-z]/\U&/g'}
+${font Noto Sans Mono CJK SC Bold:size=10}${color2}${alignc} ${exec date +%B\ %Y | sed 's/^.\| [a-z]/\U&/g'}${font Source Code Pro:size=9}
 #${offset 156}${color Darkgray}${exec JOUR=$(date +%e) ; cal | sed '1d' | sed 's/^/ /g' | sed 's/'"$JOUR"'/${color2}'"$JOUR"'${color1}/1'}
-${offset 145}${color1}${exec cal | sed -n '2p' }
-${offset 145}${color1}${exec cal | sed -n '3p' }
-${offset 145}${color1}${exec cal | sed -n '4p' }
-${offset 145}${color1}${exec cal | sed -n '5p' }
-${offset 145}${color1}${exec cal | sed -n '6p' }
-${offset 145}${color1}${exec cal | sed -n '7p' }
+${offset 155}${color1}${exec cal | sed -n '2p' }
+${offset 155}${color1}${exec cal | sed -n '3p' }
+${offset 155}${color1}${exec cal | sed -n '4p' }
+${offset 155}${color1}${exec cal | sed -n '5p' }
+${offset 155}${color1}${exec cal | sed -n '6p' }
+${offset 155}${color1}${exec cal | sed -n '7p' }
 
 #RAM & Hdd#
 ${color 0778ec}${offset 100}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 170}${font neuropol:size=20}$memperc%  ${font Nimbus Mono L:size=8 style=bold}RAM
-${offset 170}${voffset -5}${cpubar cpu6 0, 160}${voffset 2}${color1}
+${offset 170}${font neuropol:size=20}$memperc%  ${font Noto Sans Mono CJK SC Bold:size=10}RAM${font Source Code Pro:size=9}
+${offset 170}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color1}
 ${offset 170}RAM   $mem/$memmax
 ${offset 170}Swap  $swap/$swapmax
-${offset 170}Root  ${fs_free /}/${fs_size /}
-${offset 170}Home  ${fs_free /home}/${fs_size /home}
-${offset 170}Boot  ${fs_free /boot}/${fs_size /boot}
+${offset 170}Root  ${fs_used /}/${fs_size /}
+${offset 170}Home  ${fs_used /home}/${fs_size /home}
+${offset 170}Boot  ${fs_used /boot}/${fs_size /boot}
 
 #cpu#
-${color 0778ec}${offset 150}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 200}${font neuropol:size=21}${cpu cpu0}%  ${font Nimbus Mono L:size=8 style=bold}CPU
-${offset 200}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color3}
-${offset 200}Core0  ${exec sensors | grep 'Core 0' | cut -d'+' -f2 | cut -d' ' -f1}
-${offset 200}Core1  ${exec sensors | grep 'Core 1' | cut -d'+' -f2 | cut -d' ' -f1 }
+${color 0778ec}${offset 130}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
+${offset 180}${font neuropol:size=21}${cpu cpu0}%  ${font Noto Sans Mono CJK SC Bold:size=10}CPU${font Source Code Pro:size=9}
+${offset 180}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color3}
+${offset 180}Core0  ${exec sensors | grep 'Core 0' | cut -d'+' -f2 | cut -d' ' -f1}
+${offset 180}Core1  ${exec sensors | grep 'Core 1' | cut -d'+' -f2 | cut -d' ' -f1 }
 
 #Notes#
 ${color 0778ec}${offset 16}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 46}${voffset -10} ${font neuropol:size=20}N${font Nimbus Mono L:size=8 style=bold}ote
-${offset 56}${voffset -5}${cpubar cpu6 0, 80}${voffset 2}
-${offset 56}${head ./note.txt 30}
+${offset 56}${voffset -10}${font neuropol:size=20}N${font Noto Sans Mono CJK SC Bold:size=10}ote
+${offset 56}${voffset -5}${cpubar cpu6 0, 70}${voffset 2}${font Noto Sans Mono CJK SC:size=8}
+${offset 56}${head ./note.txt 28}

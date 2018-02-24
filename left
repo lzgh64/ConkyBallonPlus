@@ -68,31 +68,32 @@ own_window_argb_value 0
 own_window_argb_visual yes
 own_window_colour 000000
 TEXT
-${color 0778ec}${voffset 3}${cpugraph cpu6 1,300}${voffset 1}${cpugraph cpu6 17,1}${color3}
+${color 0778ec}${voffset 3}${cpugraph cpu6 1,270}${voffset 1}${cpugraph cpu6 17,1}${color3}
 #net#
-${offset 20}${voffset -10}${font neuropol:size=20}Net${font Nimbus Mono L:size=8 style=bold}work
-${offset 20}${voffset -5}${cpubar cpu6 0, 130}${voffset 2}${color1}
-${offset 20}${if_up wlp2s0}${color2}WiFi    Online ${else} ${color3} WiFi   Offline $endif
-${offset 20}WiFi    ${wireless_link_qual_perc wlp2s0}%
-${offset 20}Addr    ${addr wlp2s0}
+${offset 20}${voffset -10}${font neuropol:size=20}W${font Noto Sans Mono CJK SC Bold:size=10}iFi${font Source Code Pro:size=9}
+${offset 20}${voffset -5}${cpubar cpu6 0,80}${voffset 2}${color1}
+${offset 20}Status     ${if_up wlp2s0}${color2}Online${else}${color1}Offline${endif}${color1}
+${offset 20}Quality    ${wireless_link_qual_perc wlp2s0}%
+${offset 20}Address    ${addr wlp2s0}
 
 #traf#
-${color 0778ec}${voffset 3}${cpugraph cpu6 1,220}${voffset 1}${cpugraph cpu6 17,1}${color3}
-${offset 15}${if_up ppp0} Dw ${font neuropol:size=20}  ${downspeed wlp2s0}$else ${font Nimbus Mono L:size=8 style=bold}Dw ${font neuropol:size=20}  ${downspeed wlp2s0}$endif${font Nimbus Mono L:size=8 style=bold}
-${offset 15}${if_up ppp0} Up ${font neuropol:size=20}  ${upspeed wlp2s0}$else ${font Nimbus Mono L:size=8 style=bold}Up ${font neuropol:size=20}  ${upspeed wlp2s0}$endif${font Nimbus Mono L:size=8 style=bold}
-${offset 20}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color1}
-${offset 15}${if_up ppp0}DwTra  ${totaldown wlp2s0}$else DwTra  ${totaldown wlp2s0}$endif
+${color 0778ec}${voffset 3}${cpugraph cpu6 1,220}${voffset 1}${cpugraph cpu6 17,1}${color3}${font Noto Sans Mono CJK SC Bold:size=10}
+${offset 20}Up ${font neuropol:size=20}${if_up ppp0}${upspeed ppp0}${else}${upspeed wlp2s0}${endif}${font Noto Sans Mono CJK SC Bold:size=10}
+${offset 20}Dw ${font neuropol:size=20}${if_up ppp0}${downspeed ppp0}${else}${downspeed wlp2s0}${endif}${font Noto Sans Mono CJK SC Bold:size=10}
+${offset 20}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color1}${font Source Code Pro:size=9}
+${offset 20}Download Traffic${if_up ppp0}${totaldown wlp2s0}${else}    ${totaldown wlp2s0}${endif}
 
 #usb#
-${color 0778ec}${voffset 3}${cpugraph cpu6 1,260}${voffset 1}${cpugraph cpu6 17,1}${color3}
-${offset 20}${font neuropol:size=20}USB${font Nimbus Mono L:size=8 style=bold} Devices
-${offset 20}${voffset -5}${cpubar cpu6 0, 180}${voffset 2}${color1}
-## ${offset 15}${if_existing /dev/sdb}${exec df -h | grep "sdb" | cut -c52-70}   ${exec df -h | grep "sdb" | cut -c40-44}   ${else}${endif} 
-${offset 15}${if_existing /dev/sdb1}${exec df --output=source,target,used,size -h /dev/sdb1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//  /'}${else}${if_existing /dev/sdc}${else}${if_existing /dev/sdd}${else}${if_existing /dev/sde}${else}..:No Device:..${endif}${endif}${endif}${endif}
+${color 0778ec}${voffset 3}${cpugraph cpu6 1,240}${voffset 1}${cpugraph cpu6 17,1}${color3}
+${offset 20}${font neuropol:size=20}USB${font Noto Sans Mono CJK SC Bold:size=10} Devices${font Source Code Pro:size=9}
+${offset 20}${voffset -5}${cpubar cpu6 0,160}${voffset 2}${color1}
+${offset 20}${if_existing /dev/sdb}${if_existing /dev/sdb1}${exec df --output=source,target,used,size -h /dev/sdb1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif}${else}${if_existing /dev/sdc}${else}${if_existing /dev/sdd}${else}${if_existing /dev/sde}${else}..:No Device:..${endif}${endif}${endif}${endif}
 #### The Struct of Last Line
-####${offset 15}
+####${offset 20}
 ####  ${if_existing /dev/sdb}
-####    ${exec df --output=source,target,used,size -h | grep sdb1 | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//     /'}
+####    ${if_existing /dev/sdb1}
+####      ${exec df --output=source,target,used,size -h | grep sdb1 | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//     /'}
+####    ${endif}
 ####  ${else}
 ####    ${if_existing /dev/sdc}${else}
 ####      ${if_existing /dev/sdd}${else}
@@ -102,12 +103,11 @@ ${offset 15}${if_existing /dev/sdb1}${exec df --output=source,target,used,size -
 ####      ${endif}
 ####    ${endif}
 ####  ${endif}
-${offset 15}${if_existing /dev/sdc1}${exec df --output=source,target,used,size -h /dev/sdc1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//  /'}   ${else}${endif} 
-${offset 15}${if_existing /dev/sdd1}${exec df --output=source,target,used,size -h /dev/sdd1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//  /'}   ${else}${endif} 
-${offset 15}${if_existing /dev/sde1}${exec df --output=source,target,used,size -h /dev/sde1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//  /'}   ${else}${endif} 
+${offset 20}${if_existing /dev/sdc1}${exec df --output=source,target,used,size -h /dev/sdc1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif} 
+${offset 20}${if_existing /dev/sdd1}${exec df --output=source,target,used,size -h /dev/sdd1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif} 
+${offset 20}${if_existing /dev/sde1}${exec df --output=source,target,used,size -h /dev/sde1 | sed -n '2p' | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif} 
 #todo list
 ${color 0778ec}${voffset 3}${cpugraph cpu6 1,300}${voffset 1}${cpugraph cpu6 17,1}${color3}
-${offset 20}${voffset -10}${font neuropol:size=20}Todo${font Nimbus Mono L:size=8 style=bold} List
-${offset 20}${voffset -5}${cpubar cpu6 0, 160}${voffset 2}
-
-${head ./todo.txt 15}
+${offset 20}${voffset -10}${font neuropol:size=20}Todo${font Noto Sans Mono CJK SC:size=10} List
+${offset 20}${voffset -5}${cpubar cpu6 0, 150}${voffset 2}
+${color 11EE11}${font Noto Sans Mono CJK SC:size=9}${head ./todo.txt 15}
