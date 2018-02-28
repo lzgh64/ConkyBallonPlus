@@ -16,13 +16,13 @@
   update_interval 1                     #Taux de rafraîchissement de la fenêtre (s)
 
 #Fenêtre conky
-alignment top_right
+alignment middle_right
  #---
 minimum_size 0 0
   maximum_width 350                     #Largeur maximum (px)
  #---
 gap_x 0
-gap_y 40
+gap_y 0
  #---
   draw_shades no                        #Afficher les ombres
   draw_outline no                       #Afficher les contours de fenêtre
@@ -60,9 +60,8 @@ own_window_transparent yes
   pad_percents 2                        #Unité à 2 décimales
 
 #Prise en charge du LUA(CORRECT WITH YOUR PATH!!)
-  lua_load ./lua/right.lua
+  lua_load ./lua/right_simp.lua
   lua_draw_hook_pre clock_rings
-
 
 own_window_argb_value 0
 own_window_argb_visual yes
@@ -77,25 +76,8 @@ ${font Noto Sans Mono CJK SC Bold:size=10}${color2}${alignc} ${texeci 10 date +%
 ${offset 155}${color1}Su Mo Tu We Th Fr Sa
 ${execpi 1000 ./c/calendar 155 1 2 }
 
-#RAM & Hdd#
-${color 0778ec}${offset 100}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 170}${font neuropol:size=20}$memperc%  ${font Noto Sans Mono CJK SC Bold:size=10}RAM${font Source Code Pro:size=9}
-${offset 170}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color1}
-${offset 170}RAM   $mem/$memmax
-${offset 170}Swap  $swap/$swapmax
-${offset 170}Root  ${fs_used /}/${fs_size /}
-${offset 170}Home  ${fs_used /home}/${fs_size /home}
-${offset 170}Boot  ${fs_used /boot}/${fs_size /boot}
-
-#cpu#
-${color 0778ec}${offset 130}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 180}${font neuropol:size=21}${cpu cpu0}%  ${font Noto Sans Mono CJK SC Bold:size=10}CPU${font Source Code Pro:size=9}
-${offset 180}${voffset -5}${cpubar cpu6 0, 140}${voffset 2}${color3}
-${offset 180}Core0  ${texeci 10 sensors | grep 'Core 0' | cut -d'+' -f2 | cut -d' ' -f1}
-${offset 180}Core1  ${texeci 10 sensors | grep 'Core 1' | cut -d'+' -f2 | cut -d' ' -f1 }
-
 #Notes#
-${color 0778ec}${offset 16}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 56}${voffset -10}${font neuropol:size=20}N${font Noto Sans Mono CJK SC Bold:size=10}ote
-${offset 56}${voffset -5}${cpubar cpu6 0, 70}${voffset 2}${font Noto Sans Mono CJK SC:size=8}
-${offset 56}${head ./text/note.txt 28}
+${color 0778ec}${offset 56}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
+${offset 98}${voffset -10}${font neuropol:size=20}N${font Noto Sans Mono CJK SC Bold:size=10}ote
+${offset 98}${voffset -5}${cpubar cpu6 0, 70}${voffset 2}${font Noto Sans Mono CJK SC:size=8}
+${offset 98}${texeci 500 cat ./text/note.txt}

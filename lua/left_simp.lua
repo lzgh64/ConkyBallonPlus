@@ -16,175 +16,74 @@ Changelog:
 ]]
 
 settings_table = {
-  --[[Anneau des heures
   {
-    name='time',
-    arg='%I.%M',
-    max=12,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0xffffff,
-    fg_alpha=0.2,
-    x=60, y=70,
-    radius=40,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },
-  --Anneau des minutes
-  {
-    name='time',
-    arg='%M.%S',
-    max=60,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0xffffff,
-    fg_alpha=0.4,
-    x=60, y=70,
-    radius=46,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },]]
-  --Anneau des secondes
-  {
-    name='time',
-    arg='%S',
-    max=60,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=60, y=84,
-    radius=55,
-    thickness=3,
-    start_angle=0,
-    end_angle=360
-  },
- {
-    name='time',
-    arg='%M.%S',
-    max=60,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=60, y=84,
-    radius=44,
-    thickness=10,
-    start_angle=0,
-    end_angle=360
-  },
- {
-    name='time',
-    arg='%I.%M',
-    max=12,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=60, y=84,
-    radius=34,
-    thickness=3,
-    start_angle=0,
-    end_angle=360
-  },
-{
-    name='memperc',
-    arg='/',
+    name="texeci",
+    arg="10 expr $(df --output=used,size /dev/sdb1 | sed -n '2p' | tr -s ' ' | sed 's/ /00 \\/ /g')",
     max=100,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=105, y=255,
-    radius=50,
+    x=244, y=60,
+    radius=30,
     thickness=3,
     start_angle=0,
     end_angle=360
   },
 {
-    name='fs_used_perc',
-    arg='/',
+    name="texeci",
+    arg="10 expr $(df --output=used,size /dev/sdc1 | sed -n '2p' | tr -s ' ' | sed 's/ /00 \\/ /g')",
     max=100,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=105, y=255,
-    radius=35,
-    thickness=10,
+    x=244, y=60,
+    radius=24,
+    thickness=6,
     start_angle=0,
     end_angle=360
   },
 {
-    name='cpu',
-    arg='cpu1',
-    max=100,
+    name="lines",
+    arg="./text/todo.txt",
+    max=15,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=135, y=418,
-    radius=40,
-    thickness=3,
-    start_angle=0,
-    end_angle=360
-  },
-{
-    name='cpu',
-    arg='cpu2',
-    max=100,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=135, y=418,
-    radius=25,
-    thickness=10,
-    start_angle=0,
-    end_angle=360
-  },
-  {
-    name='lines',
-    arg='./note.txt',
-    max=28,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=20, y=518,
-    radius=15,
+    x=304, y=190,
+    radius=20,
     thickness=8,
     start_angle=0,
     end_angle=360
   },
   {
-    name='lines',
-    arg='./note.txt',
-    max=28,
+    name="lines",
+    arg="./text/todo.txt",
+    max=20,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=0, y=555,
+    x=330, y=212,
     radius=35,
     thickness=3,
     start_angle=0,
-    end_angle=180
+    end_angle=260
   },
 }
 
 --Use these settings to define the origin and extent of your clock.
-  clock_r=50
+  clock_r=28
 
 --Coordinates of the centre of the clock, in pixels, from the top left of the Conky window.
   clock_x=60
-  clock_y=84
+  clock_y=82
 
 --Colour & alpha of the clock hands
   clock_colour=0xffffff
-  clock_alpha=0.7
+  clock_alpha=0
 
 --Show the seconds hand ?
   show_seconds=true

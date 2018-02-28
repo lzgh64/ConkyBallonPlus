@@ -48,129 +48,87 @@ settings_table = {
   },]]
   --Anneau des secondes
   {
-    name='wireless_link_qual_perc',
-    arg='wlp2s0',
-    max=100,
+    name='time',
+    arg='%S',
+    max=60,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=273, y=74,
-    radius=45,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },
---[[{
-    name='wireless_link_qual_perc',
-    arg='ppp0',
-    max=100,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=305, y=83,
-    radius=45,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },]]
- {
-    name='downspeedf',
-	arg='wlp2s0',
-	max=800,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=224, y=188,
-    radius=40,
+    x=60, y=84,
+    radius=55,
     thickness=3,
     start_angle=0,
     end_angle=360
   },
-{
-    name='upspeedf',
-	arg='wlp2s0',
-	max=800,
+ {
+    name='time',
+    arg='%M.%S',
+    max=60,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=224, y=188,
-    radius=30,
+    x=60, y=84,
+    radius=44,
     thickness=10,
     start_angle=0,
     end_angle=360
   },
-{
-    name="fs_used_perc",
-    arg="/run/media/dawn/Elements",
-    max=100,
+ {
+    name='time',
+    arg='%I.%M',
+    max=12,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=244, y=333,
-    radius=30,
+    x=60, y=84,
+    radius=34,
     thickness=3,
     start_angle=0,
     end_angle=360
   },
-{
-    name="fs_used_perc",
-    arg="/run/media/dawn/Elements",
-    max=100,
+  {
+    name='lines',
+    arg='./text/note.txt',
+    max=50,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=244, y=333,
-    radius=24,
-    thickness=6,
-    start_angle=0,
-    end_angle=360
-  },
-{
-    name="lines",
-    arg="./todo.txt",
-    max=15,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=304, y=460,
+    x=60, y=218,
     radius=15,
     thickness=8,
     start_angle=0,
     end_angle=360
   },
   {
-    name="lines",
-    arg="./todo.txt",
-    max=15,
+    name='lines',
+    arg='./text/note.txt',
+    max=50,
     bg_colour=0xffffff,
     bg_alpha=0.2,
     fg_colour=0x0778ec,
     fg_alpha=0.9,
-    x=330, y=482,
+    x=37, y=242,
     radius=35,
     thickness=3,
-    start_angle=0,
-    end_angle=260
+    start_angle=90,
+    end_angle=360
   },
 }
 
 --Use these settings to define the origin and extent of your clock.
-  clock_r=28
+  clock_r=50
 
 --Coordinates of the centre of the clock, in pixels, from the top left of the Conky window.
   clock_x=60
-  clock_y=82
+  clock_y=84
 
 --Colour & alpha of the clock hands
   clock_colour=0xffffff
-  clock_alpha=0
+  clock_alpha=0.7
 
 --Show the seconds hand ?
   show_seconds=true
