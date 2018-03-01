@@ -73,7 +73,6 @@ ${color 0778ec}${offset 56}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}
 ${voffset -27}${offset 110}${font neuropol:size=20}${time %H:%M}${font}  ${font Nimbus Mono L:size=9}$uptime
 ${voffset -5}${offset 110}${cpubar cpu6 0, 210}${voffset 2}${color1}
 ${font Noto Sans Mono CJK SC Bold:size=10}${color2}${alignc} ${texeci 10 date +%B\ %Y | sed 's/^.\| [a-z]/\U&/g'}${font Source Code Pro:size=9}
-#${offset 156}${color Darkgray}${texeci 10 JOUR=$(date +%e) ; cal | sed '1d' | sed 's/^/ /g' | sed 's/'"$JOUR"'/${color2}'"$JOUR"'${color1}/1'}
 ${offset 155}${color1}Su Mo Tu We Th Fr Sa
 ${execpi 1000 ./c/calendar 155 1 2 }
 

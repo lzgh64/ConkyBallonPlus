@@ -18,7 +18,7 @@ Changelog:
 settings_table = {
   {
     name="texeci",
-    arg="10 expr $(df --output=used,size /dev/sdb1 | sed -n '2p' | tr -s ' ' | sed 's/ /00 \\/ /g')",
+    arg="10 if [ -b /dev/sdb1 ]; then expr $(df --output=used,size /dev/sdb1 | sed -n '2p' | tr -s ' ' | sed 's/^ //g' | sed 's/ /00 \\/ /g'); fi",
     max=100,
     bg_colour=0xffffff,
     bg_alpha=0.2,
@@ -32,7 +32,7 @@ settings_table = {
   },
 {
     name="texeci",
-    arg="10 expr $(df --output=used,size /dev/sdc1 | sed -n '2p' | tr -s ' ' | sed 's/ /00 \\/ /g')",
+    arg="10 if [ -b /dev/sdc1 ]; then expr $(df --output=used,size /dev/sdc1 | sed -n '2p' | tr -s ' ' | sed 's/^ //g' | sed 's/ /00 \\/ /g'); fi",
     max=100,
     bg_colour=0xffffff,
     bg_alpha=0.2,

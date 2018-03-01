@@ -71,25 +71,10 @@ TEXT
 ${color 0778ec}${voffset 3}${cpugraph cpu6 1,240}${voffset 1}${cpugraph cpu6 17,1}${color3}
 ${offset 20}${font neuropol:size=20}USB${font Noto Sans Mono CJK SC Bold:size=10} Devices${font Source Code Pro:size=9}
 ${offset 20}${voffset -5}${cpubar cpu6 0,160}${voffset 2}${color1}
-${offset 20}${if_existing /dev/sdb}${if_existing /dev/sdb1}${texeci 10 df -h --output=target,used,size /dev/sdb1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif}${else}${if_existing /dev/sdc}${else}${if_existing /dev/sdd}${else}${if_existing /dev/sde}${else}..:No Device:..${endif}${endif}${endif}${endif}
-#### The Struct of Last Line
-####${offset 20}
-####  ${if_existing /dev/sdb}
-####    ${if_existing /dev/sdb1}
-####      ${texeci 10 df --output=source,target,used,size -h | grep sdb1 | cut -d'/' -f7 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//     /'}
-####    ${endif}
-####  ${else}
-####    ${if_existing /dev/sdc}${else}
-####      ${if_existing /dev/sdd}${else}
-####        ${if_existing /dev/sde}${else}
-####          ..:No Device:..
-####        ${endif}
-####      ${endif}
-####    ${endif}
-####  ${endif}
-${offset 20}${if_existing /dev/sdc1}${texeci 10 df -h --output=target,used,size /dev/sdc1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif} 
-${offset 20}${if_existing /dev/sdd1}${texeci 10 df -h --output=target,used,size /dev/sdd1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif} 
-${offset 20}${if_existing /dev/sde1}${texeci 10 df -h --output=target,used,size /dev/sde1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'}${endif} 
+${offset 20}${if_existing /dev/sdb}${texeci 10 if [ -b /dev/sdb1 ]; then df -h --output=target,used,size /dev/sdb1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'; fi}${else}${if_existing /dev/sdc}${else}${if_existing /dev/sdd}${else}${if_existing /dev/sde}${else}..:No Device:..${endif}${endif}${endif}${endif}
+${offset 20}${texeci 10 if [ -b /dev/sdc1 ]; then df -h --output=target,used,size /dev/sdc1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'; fi}
+${offset 20}${texeci 10 if [ -b /dev/sdc1 ]; then df -h --output=target,used,size /dev/sdd1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'; fi}
+${offset 20}${texeci 10 if [ -b /dev/sdc1 ]; then df -h --output=target,used,size /dev/sde1 | sed -n '2p' | cut -d'/' -f5 | tr -s ' ' | sed 's/ /\//g' | sed 's/\//      /'; fi}
 
 #todo list
 ${color 0778ec}${voffset 3}${cpugraph cpu6 1,300}${voffset 1}${cpugraph cpu6 17,1}${color3}

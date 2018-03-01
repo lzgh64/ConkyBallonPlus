@@ -16,36 +16,6 @@ Changelog:
 ]]
 
 settings_table = {
-  --[[Anneau des heures
-  {
-    name='time',
-    arg='%I.%M',
-    max=12,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0xffffff,
-    fg_alpha=0.2,
-    x=60, y=70,
-    radius=40,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },
-  --Anneau des minutes
-  {
-    name='time',
-    arg='%M.%S',
-    max=60,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0xffffff,
-    fg_alpha=0.4,
-    x=60, y=70,
-    radius=46,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },]]
   --Anneau des secondes
   {
     name='wireless_link_qual_perc',
@@ -61,20 +31,6 @@ settings_table = {
     start_angle=0,
     end_angle=360
   },
---[[{
-    name='wireless_link_qual_perc',
-    arg='ppp0',
-    max=100,
-    bg_colour=0xffffff,
-    bg_alpha=0.2,
-    fg_colour=0x0778ec,
-    fg_alpha=0.9,
-    x=305, y=83,
-    radius=45,
-    thickness=5,
-    start_angle=0,
-    end_angle=360
-  },]]
  {
     name='upspeedf',
 	arg='wlp2s0',
@@ -104,8 +60,8 @@ settings_table = {
     end_angle=360
   },
 {
-    name="fs_used_perc",
-    arg="/run/media/dawn/Elements",
+    name="texeci",
+    arg="10 if [ -b /dev/sdb1 ]; then expr $(df --output=used,size /dev/sdb1 | sed -n '2p' | tr -s ' ' | sed 's/^ //g' | sed 's/ /00 \\/ /g'); fi",
     max=100,
     bg_colour=0xffffff,
     bg_alpha=0.2,
@@ -118,8 +74,8 @@ settings_table = {
     end_angle=360
   },
 {
-    name="fs_used_perc",
-    arg="/run/media/dawn/Elements",
+    name="texeci",
+    arg="10 if [ -b /dev/sdc1 ]; then expr $(df --output=used,size /dev/sdc1 | sed -n '2p' | tr -s ' ' | sed 's/^ //g' | sed 's/ /00 \\/ /g'); fi",
     max=100,
     bg_colour=0xffffff,
     bg_alpha=0.2,
